@@ -1,0 +1,52 @@
+Building DAG of jobs...
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+all                     1
+extract_features        1
+make_plot               1
+total                   3
+
+Select jobs to execute...
+
+[Tue Nov 21 10:36:01 2023]
+rule extract_features:
+    input: nucleoid_feature_extraction.py, 01nucleoid_meshdata/230516-MG1655-M9glu-DAPI_nucleoid_meshdata.pkl, 01image/230516-MG1655-M9glu-DAPI_XY01_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY02_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY03_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY04_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY05_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY06_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY07_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY08_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY09_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY10_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY11_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY12_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY13_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY14_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY15_DAPI.tif
+    output: 02nucleoid_feature/230516-MG1655-M9glu-DAPI_nucleoid_feature.pkl
+    jobid: 1
+    reason: Missing output files: 02nucleoid_feature/230516-MG1655-M9glu-DAPI_nucleoid_feature.pkl
+    wildcards: file_name=230516-MG1655-M9glu-DAPI
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Tue Nov 21 10:36:06 2023]
+Finished job 1.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Tue Nov 21 10:36:06 2023]
+rule make_plot:
+    input: nucleoid_plot.py, 02nucleoid_feature/230516-MG1655-M9glu-DAPI_nucleoid_feature.pkl
+    output: 03nucleoid_plots/230516-MG1655-M9glu-DAPI_nucleoid_PCA.tif
+    jobid: 2
+    reason: Missing output files: 03nucleoid_plots/230516-MG1655-M9glu-DAPI_nucleoid_PCA.tif; Input files updated by another job: 02nucleoid_feature/230516-MG1655-M9glu-DAPI_nucleoid_feature.pkl
+    wildcards: file_name=230516-MG1655-M9glu-DAPI
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Tue Nov 21 10:36:10 2023]
+Finished job 2.
+2 of 3 steps (67%) done
+Select jobs to execute...
+
+[Tue Nov 21 10:36:10 2023]
+localrule all:
+    input: 01nucleoid_meshdata/230516-MG1655-M9glu-DAPI_nucleoid_meshdata.pkl, 01image/230516-MG1655-M9glu-DAPI_XY01_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY02_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY03_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY04_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY05_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY06_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY07_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY08_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY09_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY10_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY11_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY12_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY13_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY14_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY15_DAPI.tif, 02nucleoid_feature/230516-MG1655-M9glu-DAPI_nucleoid_feature.pkl, 03nucleoid_plots/230516-MG1655-M9glu-DAPI_nucleoid_PCA.tif
+    jobid: 0
+    reason: Input files updated by another job: 02nucleoid_feature/230516-MG1655-M9glu-DAPI_nucleoid_feature.pkl, 03nucleoid_plots/230516-MG1655-M9glu-DAPI_nucleoid_PCA.tif
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Tue Nov 21 10:36:10 2023]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: .snakemake\log\2023-11-21T103601.095320.snakemake.log

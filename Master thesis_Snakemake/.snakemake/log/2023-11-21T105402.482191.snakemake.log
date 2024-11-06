@@ -1,0 +1,30 @@
+Building DAG of jobs...
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job      count
+-----  -------
+clean        1
+total        1
+
+Select jobs to execute...
+
+[Tue Nov 21 10:54:02 2023]
+rule clean:
+    jobid: 0
+    reason: Rules with neither input nor output files are always executed.
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Tue Nov 21 10:54:02 2023]
+Error in rule clean:
+    jobid: 0
+    shell:
+        
+    del /Q 02nucleoid_feature\*.pkl 03nucleoid_plots\*.tif
+    
+    
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake\log\2023-11-21T105402.482191.snakemake.log

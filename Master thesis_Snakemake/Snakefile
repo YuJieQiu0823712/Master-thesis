@@ -1,0 +1,55 @@
+#print('Snakefile is being executed!', flush=True)
+
+import numpy as np
+
+IMG_FILE = '01image/{img}_DAPI.tif'
+
+# Build the list of image names. 
+IMG_NAME = glob_wildcards(IMG_FILE).img
+
+# The list of all dat files
+IMGS = expand('01image/{image}_DAPI.tif', image = IMG_NAME)
+
+# Extract common string from image filenames 
+file_name = np.unique(np.array([filename.split('_')[0] for filename in IMG_NAME]))
+
+
+# pseudo-rule that tries to build everything.
+# Just add all the final outputs that you want built.
+rule all:
+  input:
+    meshdata=expand('01nucleoid_meshdata/{file_name}_nucleoid_meshdata.pkl',file_name=file_name),
+    images=IMGS,
+    feature=expand('02nucleoid_feature/{file_name}_nucleoid_feature.pkl',file_name=file_name),
+    plot=expand('03nucleoid_plots/{file_name}_nucleoid_PCA.tif',file_name=file_name)
+    
+#delete everything so we can re-run things
+rule clean:
+  shell: 
+    '''
+    del /Q 02nucleoid_feature\*.pkl 03nucleoid_plots\*.tif
+    
+    '''
+
+#extract features in our images
+rule extract_features:
+  input: 
+    cmd='nucleoid_feature_extraction.py',
+    meshdata='01nucleoid_meshdata/{file_name}_nucleoid_meshdata.pkl',
+    images=IMGS
+  output: '02nucleoid_feature/{file_name}_nucleoid_feature.pkl'
+  shell:  
+    '''
+    python {input.cmd} {input.meshdata} {input.images} {output}
+    '''
+
+#visualize the high-dimentional data
+rule make_plot:
+  input:
+    cmd='nucleoid_plot.py',
+    feature='02nucleoid_feature/{file_name}_nucleoid_feature.pkl'
+  output: 
+    plot='03nucleoid_plots/{file_name}_nucleoid_PCA.tif'
+  shell: 'python {input.cmd} {input.feature} {output.plot}'
+    
+

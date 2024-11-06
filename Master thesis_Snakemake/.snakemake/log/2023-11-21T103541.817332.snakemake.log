@@ -1,0 +1,33 @@
+Building DAG of jobs...
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job          count
+---------  -------
+all              1
+make_plot        1
+total            2
+
+Select jobs to execute...
+
+[Tue Nov 21 10:35:42 2023]
+rule make_plot:
+    input: nucleoid_plot.py, 02nucleoid_feature/230516-MG1655-M9glu-DAPI_nucleoid_feature.pkl
+    output: 03nucleoid_plots/230516-MG1655-M9glu-DAPI_nucleoid_PCA.tif
+    jobid: 2
+    reason: Missing output files: 03nucleoid_plots/230516-MG1655-M9glu-DAPI_nucleoid_PCA.tif
+    wildcards: file_name=230516-MG1655-M9glu-DAPI
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Tue Nov 21 10:35:43 2023]
+Error in rule make_plot:
+    jobid: 2
+    input: nucleoid_plot.py, 02nucleoid_feature/230516-MG1655-M9glu-DAPI_nucleoid_feature.pkl
+    output: 03nucleoid_plots/230516-MG1655-M9glu-DAPI_nucleoid_PCA.tif
+    shell:
+        python nucleoid_plot.py 02nucleoid_feature/230516-MG1655-M9glu-DAPI_nucleoid_feature.pkl 03nucleoid_plots/230516-MG1655-M9glu-DAPI_nucleoid_PCA.tif
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake\log\2023-11-21T103541.817332.snakemake.log

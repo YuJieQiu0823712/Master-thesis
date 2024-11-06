@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in rule all in file c:\Jade\thesis\data\pipline\Snakefile, line 19:
+Missing input files for rule all:
+    affected files:
+        03nucleoid_plots/230516-MG1655-M9glu-DAPI_PCA.tif

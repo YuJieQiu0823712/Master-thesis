@@ -1,0 +1,36 @@
+Building DAG of jobs...
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+all                     1
+extract_features        1
+make_plot               1
+total                   3
+
+Select jobs to execute...
+
+[Tue Nov 21 10:50:11 2023]
+rule extract_features:
+    input: nucleoid_feature_extraction.py, 01nucleoid_meshdata/230516-MG1655-M9glu-DAPI_nucleoid_meshdata.pkl, 01image/230516-MG1655-M9glu-DAPI_XY01_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY02_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY03_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY04_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY05_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY06_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY07_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY08_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY09_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY10_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY11_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY12_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY13_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY14_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY15_DAPI.tif
+    output: 02nucleoid_feature/230516-MG1655-M9glu-DAPI_nucleoid_feature.pkl
+    jobid: 1
+    reason: Missing output files: 02nucleoid_feature/230516-MG1655-M9glu-DAPI_nucleoid_feature.pkl
+    wildcards: file_name=230516-MG1655-M9glu-DAPI
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Tue Nov 21 10:50:17 2023]
+Error in rule extract_features:
+    jobid: 1
+    input: nucleoid_feature_extraction.py, 01nucleoid_meshdata/230516-MG1655-M9glu-DAPI_nucleoid_meshdata.pkl, 01image/230516-MG1655-M9glu-DAPI_XY01_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY02_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY03_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY04_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY05_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY06_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY07_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY08_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY09_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY10_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY11_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY12_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY13_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY14_DAPI.tif, 01image/230516-MG1655-M9glu-DAPI_XY15_DAPI.tif
+    output: 02nucleoid_feature/230516-MG1655-M9glu-DAPI_nucleoid_feature.pkl
+    shell:
+        
+    python nucleoid_feature_extraction.py 01nucleoid_meshdata/230516-MG1655-M9glu-DAPI_nucleoid_meshdata.pkl 01image/230516-MG1655-M9glu-DAPI_XY01_DAPI.tif 01image/230516-MG1655-M9glu-DAPI_XY02_DAPI.tif 01image/230516-MG1655-M9glu-DAPI_XY03_DAPI.tif 01image/230516-MG1655-M9glu-DAPI_XY04_DAPI.tif 01image/230516-MG1655-M9glu-DAPI_XY05_DAPI.tif 01image/230516-MG1655-M9glu-DAPI_XY06_DAPI.tif 01image/230516-MG1655-M9glu-DAPI_XY07_DAPI.tif 01image/230516-MG1655-M9glu-DAPI_XY08_DAPI.tif 01image/230516-MG1655-M9glu-DAPI_XY09_DAPI.tif 01image/230516-MG1655-M9glu-DAPI_XY10_DAPI.tif 01image/230516-MG1655-M9glu-DAPI_XY11_DAPI.tif 01image/230516-MG1655-M9glu-DAPI_XY12_DAPI.tif 01image/230516-MG1655-M9glu-DAPI_XY13_DAPI.tif 01image/230516-MG1655-M9glu-DAPI_XY14_DAPI.tif 01image/230516-MG1655-M9glu-DAPI_XY15_DAPI.tif 02nucleoid_feature/230516-MG1655-M9glu-DAPI_nucleoid_feature.pkl
+    
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake\log\2023-11-21T105011.196957.snakemake.log
